@@ -1,0 +1,42 @@
+void setup() {
+  // put your setup code here, to run once:
+  
+  
+    #include <Servo.h>
+
+// Define the pin for the servo motor
+#define SERVO_PIN 9
+
+// Define the pin for the potentiometer
+#define POTENTIOMETER_PIN A0
+
+// Create a servo object
+Servo myServo;
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+
+  // Attach the servo to its pin
+  myServo.attach(SERVO_PIN);
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ // Read the value from the potentiometer
+  int potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Map the potentiometer value to servo range (0-180)
+  int angle = map(potValue, 0, 1023, 0, 180);
+
+  // Move the servo to the mapped angle
+  myServo.write(angle);
+
+  // Print the angle to serial monitor
+  Serial.print("Angle: ");
+  Serial.println(angle);
+
+  // Delay for smoother motion (adjust as needed)
+  delay(15);
+}
