@@ -1,0 +1,22 @@
+void setup() {
+  // put your setup code here, to run once:
+  
+  
+    #include <Servo.h>
+
+// Define the pin for the servo motor
+#define SERVO_PIN 9
+
+// Define the pin for the potentiometer
+#define POTENTIOMETER_PIN A0
+
+// Create a servo object
+Servo myServo;
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+
+  // Attach the servo to its pin
+  myServo.attach(SERVO_PIN);
+}
